@@ -97,9 +97,9 @@
     <orderEntry type="library" exported="" name="support-annotations-22.2.1" level="project" />
     <orderEntry type="library" exported="" name="baidumapapi_search_v3_6_1" level="project" />
     <orderEntry type="library" exported="" name="locSDK_6.13" level="project" />
-    <orderEntry type="library" exported="" name="baidumapapi_util_v3_6_1" level="project" />
-    <orderEntry type="library" exported="" name="locSDK_6.12" level="project" />
     <orderEntry type="library" exported="" name="baidumapapi_cloud_v3_6_1" level="project" />
+    <orderEntry type="library" exported="" name="locSDK_6.12" level="project" />
+    <orderEntry type="library" exported="" name="baidumapapi_util_v3_6_1" level="project" />
     <orderEntry type="library" exported="" name="appcompat-v7-22.2.1" level="project" />
   </component>
 </module>
