@@ -48,7 +48,7 @@ import java.util.List;
 
 
 public class MainActivity extends Activity {
-    private boolean isShow=true;
+    private boolean isShow = true;
     private boolean mapisNormal;
     private boolean flag;
     private FloatingActionButton mapMode;
@@ -59,10 +59,9 @@ public class MainActivity extends Activity {
     private FloatingActionMenu member;
     private MapView mMapView = null;
     private BaiduMap mBaiduMap;
-    private InfoWindow mInfoWindow=null;
+    private InfoWindow mInfoWindow = null;
     public LocationClient mLocationClient = null;
     public BDLocationListener myListener = new MyLocationListener();
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,7 +70,6 @@ public class MainActivity extends Activity {
         SDKInitializer.initialize(getApplicationContext());
         setContentView(R.layout.activity_main);
         init();
-
 
         //菜单的初始与设置
         initFABMenu();
@@ -86,7 +84,6 @@ public class MainActivity extends Activity {
         //判断是否网络连接
         Util.isNetworkConnected(MainActivity.this);
 
-
         //Mark的初始
         initMark();
 
@@ -96,14 +93,15 @@ public class MainActivity extends Activity {
         //菜单1的设置
         initMenu1();
 
+        
 
 
     }
-    private void initMenu1()
-    {
-        FloatingActionButton empty_classroom=(FloatingActionButton)findViewById(R.id.empty_classroom);
-        FloatingActionButton loaction=(FloatingActionButton)findViewById(R.id.location);
-        FloatingActionButton search=(FloatingActionButton)findViewById(R.id.search);
+
+    private void initMenu1() {
+        FloatingActionButton empty_classroom = (FloatingActionButton) findViewById(R.id.empty_classroom);
+        FloatingActionButton loaction = (FloatingActionButton) findViewById(R.id.location);
+        FloatingActionButton search = (FloatingActionButton) findViewById(R.id.search);
 
         //空教室
 
@@ -112,13 +110,12 @@ public class MainActivity extends Activity {
         loaction.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (isShow)
-                {
+                if (isShow) {
                     locate.setVisibility(View.INVISIBLE);
-                    isShow=false;
-                }else {
+                    isShow = false;
+                } else {
                     locate.setVisibility(View.VISIBLE);
-                    isShow=true;
+                    isShow = true;
                 }
             }
         });
@@ -126,13 +123,10 @@ public class MainActivity extends Activity {
     }
 
 
-
-    private void initinfowindow()
-    {
+    private void initinfowindow() {
         mBaiduMap.setOnMarkerClickListener(new BaiduMap.OnMarkerClickListener() {
             @Override
             public boolean onMarkerClick(Marker marker) {
-
 
                 double latitude, longitude;
                 latitude = marker.getPosition().latitude;
@@ -140,9 +134,9 @@ public class MainActivity extends Activity {
 
                 View view = LayoutInflater.from(MainActivity.this).inflate(R.layout.info_window, null); //自定义气泡形状
                 TextView textView = (TextView) view.findViewById(R.id.textView);
-                TextView title=(TextView)view.findViewById(R.id.title);
-                TextView click=(TextView)view.findViewById(R.id.click);
-               //标题内容
+                TextView title = (TextView) view.findViewById(R.id.title);
+                TextView click = (TextView) view.findViewById(R.id.click);
+                //标题内容
                 title.setText(marker.getTitle());
                 LatLng pt = new LatLng(latitude, longitude);
                 //正文内容
@@ -152,16 +146,15 @@ public class MainActivity extends Activity {
                 click.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent intent=new Intent(MainActivity.this, com.walkeasily.cs2015.walkeasily.List.class);
+                        Intent intent = new Intent(MainActivity.this, com.walkeasily.cs2015.walkeasily.List.class);
                         startActivity(intent);
-
                     }
                 });
 
 
                 // 定义用于显示该InfoWindow的坐标点
                 // 创建InfoWindow
-                mInfoWindow = new InfoWindow(view, pt,-30);
+                mInfoWindow = new InfoWindow(view, pt, -30);
 
                 mBaiduMap.showInfoWindow(mInfoWindow); //显示气泡
 
@@ -170,22 +163,21 @@ public class MainActivity extends Activity {
         });
     }
 
-    private void initMark()
-    {
+    private void initMark() {
         //教十一
-        LatLng latLng11 = new LatLng(38.89482449994686,115.52477449681984);
+        LatLng latLng11 = new LatLng(38.89482449994686, 115.52477449681984);
         //教十
-        LatLng latLng10=new LatLng(38.892128625498785,115.52070517285965);
+        LatLng latLng10 = new LatLng(38.892128625498785, 115.52070517285965);
         //教九
-        LatLng latLng9=new LatLng(38.89214968741778,115.51942059598038);
+        LatLng latLng9 = new LatLng(38.89214968741778, 115.51942059598038);
         //教八
-        LatLng latLng8=new LatLng(38.89560375693293,115.52154059698393);
+        LatLng latLng8 = new LatLng(38.89560375693293, 115.52154059698393);
         //教七
-        LatLng latLng7=new LatLng(38.892992159013566,115.52061534230864);
+        LatLng latLng7 = new LatLng(38.892992159013566, 115.52061534230864);
         //教六
-        LatLng latLng6=new LatLng(38.892816644928615,115.51986974873536);
+        LatLng latLng6 = new LatLng(38.892816644928615, 115.51986974873536);
         //操场
-        LatLng latLng0=new LatLng(38.89273239801251,115.5191600873825);
+        LatLng latLng0 = new LatLng(38.89273239801251, 115.5191600873825);
 
 
 //准备 marker 的图片
@@ -201,15 +193,13 @@ public class MainActivity extends Activity {
 
 
 //获取添加的 marker 这样便于后续的操作
-       Marker marker11 = (Marker) mBaiduMap.addOverlay(markerOptions11);
+        Marker marker11 = (Marker) mBaiduMap.addOverlay(markerOptions11);
         Marker marker10 = (Marker) mBaiduMap.addOverlay(markerOptions10);
         Marker marker9 = (Marker) mBaiduMap.addOverlay(markerOptions9);
         Marker marker8 = (Marker) mBaiduMap.addOverlay(markerOptions8);
         Marker marker7 = (Marker) mBaiduMap.addOverlay(markerOptions7);
         Marker marker6 = (Marker) mBaiduMap.addOverlay(markerOptions6);
         Marker marker0 = (Marker) mBaiduMap.addOverlay(markerOptions0);
-
-
 
 
     }
@@ -275,11 +265,10 @@ public class MainActivity extends Activity {
         });
     }
 
-    private void initFABMenu()
-    {
-        map=(FloatingActionMenu) findViewById(R.id.Map);
-        activities=(FloatingActionMenu)findViewById(R.id.Activities);
-        member=(FloatingActionMenu)findViewById(R.id.Member);
+    private void initFABMenu() {
+        map = (FloatingActionMenu) findViewById(R.id.Map);
+        activities = (FloatingActionMenu) findViewById(R.id.Activities);
+        member = (FloatingActionMenu) findViewById(R.id.Member);
 
 
         map.hideMenu(false);
@@ -288,11 +277,10 @@ public class MainActivity extends Activity {
     }
 
 
-    private void initMapCenter()
-    {
-        double x=38.896186;
-        double y=115.523255;
-        LatLng cenpt =  new LatLng(x,y);
+    private void initMapCenter() {
+        double x = 38.896186;
+        double y = 115.523255;
+        LatLng cenpt = new LatLng(x, y);
 //定义地图状态
         MapStatus mMapStatus = new MapStatus.Builder()
                 .target(cenpt)
@@ -306,6 +294,7 @@ public class MainActivity extends Activity {
 
 
     }
+
     private void setLocation() {
         locate = (FloatingActionButton) findViewById(R.id.locate);
         locate.setOnClickListener(new View.OnClickListener() {
@@ -325,20 +314,19 @@ public class MainActivity extends Activity {
 
     private void initandsetmapMode() {
         mapisNormal = true;
-        mapMode=(FloatingActionButton)findViewById(R.id.mapMode);
+        mapMode = (FloatingActionButton) findViewById(R.id.mapMode);
         mapMode.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 mapMode.setEnabled(false);
-                if (mapisNormal)
-                {
+                if (mapisNormal) {
                     mBaiduMap.setMapType(BaiduMap.MAP_TYPE_SATELLITE);
-                    mapisNormal=false;
+                    mapisNormal = false;
                     init();
                     mapMode.setEnabled(true);
-                }else {
+                } else {
                     mBaiduMap.setMapType(BaiduMap.MAP_TYPE_NORMAL);
-                    mapisNormal=true;
+                    mapisNormal = true;
                     init();
                     mapMode.setEnabled(true);
                 }
@@ -347,9 +335,6 @@ public class MainActivity extends Activity {
         });
 
     }
-
-
-
 
 
     @Override
@@ -381,9 +366,9 @@ public class MainActivity extends Activity {
         @Override
         public void onReceiveLocation(BDLocation location) {
             //Receive Location
-            double x=location.getLatitude();
-            double y=location.getLongitude();
-            if (x>=38.891&&x<=38.898   &&y>=115.51&&y<=115.53) {
+            double x = location.getLatitude();
+            double y = location.getLongitude();
+            if (x >= 38.891 && x <= 38.898 && y >= 115.51 && y <= 115.53) {
 
                 LatLng cenpt = new LatLng(x, y);
 //定义地图状态
@@ -407,7 +392,7 @@ public class MainActivity extends Activity {
                 mBaiduMap.setMyLocationData(locData);    //设置定位数据
                 mLocationClient.stop();
                 locate.setEnabled(true);
-            }else {
+            } else {
                 Dialog alertDialog = new AlertDialog.Builder(MainActivity.this).
                         setTitle("提示").
                         setMessage("本应用是针对华北电力大学保定二校区开发，请在其附近区域使用定位功能。").setPositiveButton("确定", new DialogInterface.OnClickListener() {
@@ -424,26 +409,22 @@ public class MainActivity extends Activity {
     }
 
 
-
- @Override
+    @Override
     public boolean onTouchEvent(MotionEvent event) {
 
-        if (mInfoWindow!=null)
-        {
+        if (mInfoWindow != null) {
             mBaiduMap.hideInfoWindow();
         }
         return super.onTouchEvent(event);
     }
 
 
-
-
-    private void initLocation(){
+    private void initLocation() {
         LocationClientOption option = new LocationClientOption();
         option.setLocationMode(LocationClientOption.LocationMode.Hight_Accuracy
         );//可选，默认高精度，设置定位模式，高精度，低功耗，仅设备
         option.setCoorType("bd09ll");//可选，默认gcj02，设置返回的定位结果坐标系
-        int span=3000;
+        int span = 3000;
         option.setScanSpan(span);//可选，默认0，即仅定位一次，设置发起定位请求的间隔需要大于等于1000ms才是有效的
         option.setIsNeedAddress(true);//可选，设置是否需要地址信息，默认不需要
         option.setOpenGps(true);//可选，默认false,设置是否使用gps

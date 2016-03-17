@@ -14,6 +14,4 @@ public class Infomation extends Activity {
         setContentView(R.layout.activity_infomation);
     }
 
-
-
 }
