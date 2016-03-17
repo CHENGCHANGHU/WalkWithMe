@@ -65,12 +65,29 @@
 
         <activity
             android:name=".MainActivity"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+
+        <service
+            android:name="com.baidu.location.f"
+            android:enabled="true"
+            android:process=":remote" >
+        </service>
+
+        <activity
+            android:name=".List"
+            android:label="活动列表"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".Infomation"
+            android:label="活动详情" >
         </activity>
     </application>
 

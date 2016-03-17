@@ -1,0 +1,26 @@
+
+<com.tuesda.walker.circlerefresh.CircleRefreshLayout
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".MainActivity"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:id="@+id/circlerefreshlayout"
+    >
+    <ListView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/list"
+        >
+
+    </ListView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/empty"
+        android:textSize="@dimen/abc_text_size_title_material"
+        android:layout_gravity="center_horizontal"
+        android:text="下滑刷新"
+        />
+</com.tuesda.walker.circlerefresh.CircleRefreshLayout>

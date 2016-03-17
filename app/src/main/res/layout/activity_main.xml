@@ -1,8 +1,10 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:fab="http://schemas.android.com/apk/res-auto"
 
-   tools:context=".MainActivity">
+    tools:context=".MainActivity">
 
 
     <com.baidu.mapapi.map.MapView
@@ -10,9 +12,174 @@
         android:layout_height="fill_parent"
         android:clickable="true"
         android:id="@+id/bmapview"
-
         >
     </com.baidu.mapapi.map.MapView>
-   
+
+
+
+
+    <com.github.clans.fab.FloatingActionMenu android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        fab:menu_colorNormal="@color/red"
+        fab:menu_icon="@drawable/image_map"
+        fab:menu_fab_show_animation="@anim/fab_scale_up"
+        fab:menu_openDirection="up"
+        android:id="@+id/Map"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="bottom"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/empty_classroom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            fab:fab_size="mini"
+            fab:fab_label="教室"
+            android:src="@drawable/classroom"
+            fab:fab_colorNormal="@color/red"
+
+
+            />
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            fab:fab_size="mini"
+            fab:fab_label="定位"
+            android:src="@drawable/image_location"
+            fab:fab_colorNormal="@color/red"
+
+            />
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            fab:fab_size="mini"
+            fab:fab_label="检索"
+            android:src="@drawable/search"
+            fab:fab_colorNormal="@color/red"
+
+            />
+
+
+
+    </com.github.clans.fab.FloatingActionMenu>
+
+
+
+
+    <com.github.clans.fab.FloatingActionMenu android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        fab:menu_icon="@drawable/image_activities"
+        fab:menu_openDirection="up"
+        fab:menu_colorNormal="@color/green"
+        fab:menu_colorPressed="@color/green"
+        android:id="@+id/Activities"
+        android:layout_gravity="bottom"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/Map"
+        android:layout_toEndOf="@+id/Map">
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/publish"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            fab:fab_size="mini"
+            fab:fab_label="发布"
+            android:src="@drawable/pyblish"
+            fab:fab_colorNormal="@color/green"
+            fab:fab_colorPressed="@color/green"
+
+
+            />
+
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/collect"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            fab:fab_size="mini"
+            fab:fab_label="收藏"
+            android:src="@drawable/collect"
+            fab:fab_colorNormal="@color/green"
+            fab:fab_colorPressed="@color/green"
+            />
+
+
+
+
+    </com.github.clans.fab.FloatingActionMenu>
+    <com.github.clans.fab.FloatingActionMenu
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        fab:menu_icon="@drawable/image_member"
+        fab:menu_colorNormal="@color/blue"
+        fab:menu_colorPressed="@color/blue"
+        fab:menu_openDirection="up"
+        android:id="@+id/Member"
+        android:layout_gravity="bottom"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/Activities"
+        android:layout_toEndOf="@+id/Activities">
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/account"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            fab:fab_size="mini"
+            fab:fab_label="账号"
+            android:src="@drawable/own"
+            fab:fab_colorNormal="@color/blue"
+            fab:fab_colorPressed="@color/blue"
+            />
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/notice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            fab:fab_size="mini"
+            fab:fab_label="通知"
+            android:src="@drawable/notice"
+            fab:fab_colorNormal="@color/blue"
+            fab:fab_colorPressed="@color/blue"
+            />
+
+
+
+    </com.github.clans.fab.FloatingActionMenu>
+
+    <com.github.clans.fab.FloatingActionButton
+        android:id="@+id/imageMenu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        fab:fab_size="mini"
+        fab:fab_colorNormal="@color/light_blue"
+        fab:fab_colorPressed="@color/blue"
+        android:src="@drawable/image_menu_1"
+        android:layout_alignTop="@+id/Member"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+    <com.github.clans.fab.FloatingActionButton
+        android:id="@+id/locate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        fab:fab_size="mini"
+        fab:fab_colorNormal="@color/orange"
+        fab:fab_colorPressed="@color/yellow"
+        android:src="@drawable/image_location"
+
+
+        android:layout_above="@+id/imageMenu"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <com.github.clans.fab.FloatingActionButton
+        android:id="@+id/mapMode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        fab:fab_size="mini"
+        fab:fab_colorNormal="@color/yellow"
+        fab:fab_colorPressed="@color/orange"
+        android:src="@drawable/mapmode"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+
 
 </RelativeLayout>
