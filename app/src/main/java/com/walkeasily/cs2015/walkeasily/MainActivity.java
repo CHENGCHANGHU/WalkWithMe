@@ -83,6 +83,10 @@ public class MainActivity extends Activity {
         //地图模式的初始与设置
         initandsetmapMode();
 
+        //判断是否网络连接
+        Util.isNetworkConnected(MainActivity.this);
+
+
         //Mark的初始
         initMark();
 

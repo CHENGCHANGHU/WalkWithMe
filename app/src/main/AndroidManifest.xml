@@ -81,9 +81,13 @@
         </service>
 
         <activity
-            android:screenOrientation="portrait"
             android:name=".List"
-            android:label="@string/title_activity_list" >
+            android:label="活动列表"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".Infomation"
+            android:label="活动详情" >
         </activity>
     </application>
 
