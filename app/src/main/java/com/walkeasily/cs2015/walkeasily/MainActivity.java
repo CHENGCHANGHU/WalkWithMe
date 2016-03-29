@@ -93,9 +93,23 @@ public class MainActivity extends Activity {
         //菜单1的设置
         initMenu1();
 
-        
+        //菜单3的设置
+        initMenu3();
 
+    }
 
+    private void initMenu3() {
+        FloatingActionButton btn_account = (FloatingActionButton) findViewById(R.id.account);
+        FloatingActionButton btn_notice = (FloatingActionButton) findViewById(R.id.notice);
+
+        //账号按钮的点击事件
+        btn_account.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, AccountActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void initMenu1() {

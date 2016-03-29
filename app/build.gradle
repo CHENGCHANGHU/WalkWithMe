@@ -28,4 +28,5 @@ dependencies {
     compile 'com.android.support:support-v4:20.+'
     compile 'com.daimajia.swipelayout:library:1.2.0@aar'
     compile project(':circlerefresh')
+    compile 'com.google.android.gms:play-services-appindexing:8.1.0'
 }
