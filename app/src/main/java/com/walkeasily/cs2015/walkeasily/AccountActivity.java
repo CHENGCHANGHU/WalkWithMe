@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
@@ -11,6 +12,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.view.View;
 import android.view.ViewDebug;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -35,7 +37,7 @@ public class AccountActivity extends Activity {
     private ImageView headPic;
     private EditText userName;
     private EditText password;
-    private TextView btn_login;
+    private Button btn_login;
     private TextView btn_cannotLogin;
     private TextView btn_newUser;
 
@@ -66,7 +68,6 @@ public class AccountActivity extends Activity {
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                btn_login.setBackgroundColor(Color.parseColor("#996a5cff"));
                 final String loginName = userName.getText().toString();
                 final String loginPassword = password.getText().toString();
 
@@ -111,15 +112,16 @@ public class AccountActivity extends Activity {
         btn_cannotLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new AlertDialog.Builder(AccountActivity.this)
-                        .setTitle("提示")
-                        .setMessage("您的问题已经发送")
-                        .setPositiveButton("确定", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                dialog.dismiss();
-                            }
-                        }).show();
+//                new AlertDialog.Builder(AccountActivity.this)
+//                        .setTitle("提示")
+//                        .setMessage("您的问题已经发送")
+//                        .setPositiveButton("确定", new DialogInterface.OnClickListener() {
+//                            @Override
+//                            public void onClick(DialogInterface dialog, int which) {
+//                                dialog.dismiss();
+//                            }
+//                        }).show();
+//                startActivity();
             }
         });
 
@@ -127,7 +129,7 @@ public class AccountActivity extends Activity {
         btn_newUser.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                startActivity(new Intent(AccountActivity.this, SignUpActivity.class));
             }
         });
 
@@ -137,7 +139,7 @@ public class AccountActivity extends Activity {
         headPic = (ImageView) findViewById(R.id.iv_headPic);
         userName = (EditText) findViewById(R.id.et_userName);
         password = (EditText) findViewById(R.id.et_password);
-        btn_login = (TextView) findViewById(R.id.tv_loginButton);
+        btn_login = (Button) findViewById(R.id.tv_loginButton);
         btn_cannotLogin = (TextView) findViewById(R.id.tv_cannotLogin);
         btn_newUser = (TextView) findViewById(R.id.tv_newUser);
 

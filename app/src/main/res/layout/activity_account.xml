@@ -38,12 +38,12 @@
             android:inputType="textPassword"
             android:paddingLeft="20dp" />
 
-        <TextView
+        <Button
             android:id="@+id/tv_loginButton"
             android:layout_width="200dp"
             android:layout_height="40dp"
             android:layout_gravity="center_horizontal"
-            android:background="#6a5cff"
+            android:background="@drawable/login_btn_clicked"
             android:gravity="center"
             android:letterSpacing="0.8"
             android:lineSpacingExtra="3dp"
