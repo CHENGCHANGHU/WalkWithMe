@@ -21,38 +21,43 @@ import android.widget.Toast;
 import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.common.api.GoogleApiClient;
+import com.walkeasily.cs2015.walkeasily.bean.User;
 import com.walkeasily.cs2015.walkeasily.server.ServiceRulesException;
 import com.walkeasily.cs2015.walkeasily.server.UserService;
 import com.walkeasily.cs2015.walkeasily.server.UserServiceImpl;
 
 import java.lang.ref.WeakReference;
 import java.nio.channels.Channel;
-import java.util.WeakHashMap;
+import java.util.*;
+import java.util.List;
+
+import cn.bmob.v3.BmobQuery;
+import cn.bmob.v3.listener.FindListener;
 
 /**
  * Created by Administrator on 2016/3/17.
  */
 public class AccountActivity extends Activity {
 
-    private ImageView headPic;
+//    private ImageView headPic;
     private EditText userName;
     private EditText password;
     private Button btn_login;
-    private TextView btn_cannotLogin;
-    private TextView btn_newUser;
+    //    private TextView btn_cannotLogin;
+    private Button btn_newUser;
 
-    private UserService userService;
+//    private UserService userService;
 
-    private static final int FLAG_LOGIN_SUCCESS = 1;
+    private static final String FLAG_LOGIN_SUCCESS = "SUCCESS";
+//
+//    private static final String MSG_LOGIN_ERROR = "登录错误";
+//    private static final String MSG_LOGIN_SUCCESS = "登录成功";
+//    public static final String MSG_LOGIN_FAILED = "登录名或密码出错";
+//    public static final String MSG_SERVER_ERROR = "请求服务器错误";
+//    public static final String MSG_RESPONSE_TIMEOUT = "服务器响应超时";
+//    public static final String MSG_REQUEST_TIMEOUT = "服务器请求超时";
 
-    private static final String MSG_LOGIN_ERROR = "登录错误";
-    private static final String MSG_LOGIN_SUCCESS = "登录成功";
-    public static final String MSG_LOGIN_FAILED = "登录名或密码出错";
-    public static final String MSG_SERVER_ERROR = "请求服务器错误";
-    public static final String MSG_RESPONSE_TIMEOUT = "服务器响应超时";
-    public static final String MSG_REQUEST_TIMEOUT = "服务器请求超时";
-
-    private CHandler handler = new CHandler(this);
+//    private CHandler handler = new CHandler(this);
 
     private static ProgressDialog dialog;
 
@@ -71,59 +76,88 @@ public class AccountActivity extends Activity {
                 final String loginName = userName.getText().toString();
                 final String loginPassword = password.getText().toString();
 
-                if (dialog == null) {
-                    dialog = new ProgressDialog(AccountActivity.this);
-                }
-                dialog.setTitle("请等待");
-                dialog.setMessage("登录中...");
-                dialog.setCancelable(false);
-                dialog.show();
+//                if (dialog == null) {
+//                    dialog = new ProgressDialog(AccountActivity.this);
+//                }
+//                dialog.setTitle("请等待");
+//                dialog.setMessage("登录中...");
+//                dialog.setCancelable(false);
+//                dialog.show();
 
                 //副线程
-                new Thread(new Runnable() {
-                    @Override
-                    public void run() {
-                        try {
-                            userService.userLogin(loginName, loginPassword);
-                            handler.sendEmptyMessage(FLAG_LOGIN_SUCCESS);
-                        } catch (ServiceRulesException e) {
-                            e.printStackTrace();
-                            Message message = new Message();
-                            Bundle data = new Bundle();
-                            data.putSerializable("ErrorMsg", e.getMessage());
-                            message.setData(data);
-                            handler.sendMessage(message);
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                            Message message = new Message();
-                            Bundle data = new Bundle();
-                            data.putSerializable("ErrorMsg", MSG_LOGIN_ERROR);
-                            message.setData(data);
-                            handler.sendMessage(message);
-                        }
-                    }
-                }).start();
+//                new Thread(new Runnable() {
+//                    @Override
+//                    public void run() {
+//                        try {
+//                            userService.userLogin(loginName, loginPassword);
+//                            handler.sendEmptyMessage(FLAG_LOGIN_SUCCESS);
+//                        } catch (ServiceRulesException e) {
+//                            e.printStackTrace();
+//                            Message message = new Message();
+//                            Bundle data = new Bundle();
+//                            data.putSerializable("ErrorMsg", e.getMessage());
+//                            message.setData(data);
+//                            handler.sendMessage(message);
+//                        } catch (Exception e) {
+//                            e.printStackTrace();
+//                            Message message = new Message();
+//                            Bundle data = new Bundle();
+//                            data.putSerializable("ErrorMsg", MSG_LOGIN_ERROR);
+//                            message.setData(data);
+//                            handler.sendMessage(message);
+//                        }
+//                    }
+//                }).start();
 
-                btn_login.setBackgroundColor(Color.parseColor("#ff6a5cff"));
+
+                BmobQuery<User> query = new BmobQuery<User>();
+                query.findObjects(AccountActivity.this, new FindListener<User>() {
+                    @Override
+                    public void onSuccess(List<User> list) {
+                        for (User u : list) {
+                            if (u.getName().equals(loginName) && u.getPassword().equals(loginPassword)) {
+                                Toast.makeText(AccountActivity.this, "登录成功", Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(AccountActivity.this, AfterLoginActivity.class);
+                                intent.putExtra(FLAG_LOGIN_SUCCESS, u.getStudentId());
+                                startActivity(intent);
+                                return;
+                            }
+                        }
+
+                        new AlertDialog.Builder(AccountActivity.this)
+                                .setTitle("提示")
+                                .setMessage("登录失败，密码错误")
+                                .show();
+                    }
+
+                    @Override
+                    public void onError(int i, String s) {
+                        new AlertDialog.Builder(AccountActivity.this)
+                                .setTitle("提示")
+                                .setMessage("登录失败，密码错误")
+                                .show();
+                    }
+                });
+
             }
         });
 
         //无法登录按钮
-        btn_cannotLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-//                new AlertDialog.Builder(AccountActivity.this)
-//                        .setTitle("提示")
-//                        .setMessage("您的问题已经发送")
-//                        .setPositiveButton("确定", new DialogInterface.OnClickListener() {
-//                            @Override
-//                            public void onClick(DialogInterface dialog, int which) {
-//                                dialog.dismiss();
-//                            }
-//                        }).show();
-//                startActivity();
-            }
-        });
+//        btn_cannotLogin.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+////                new AlertDialog.Builder(AccountActivity.this)
+////                        .setTitle("提示")
+////                        .setMessage("您的问题已经发送")
+////                        .setPositiveButton("确定", new DialogInterface.OnClickListener() {
+////                            @Override
+////                            public void onClick(DialogInterface dialog, int which) {
+////                                dialog.dismiss();
+////                            }
+////                        }).show();
+////                startActivity();
+//            }
+//        });
 
         //新用户按钮
         btn_newUser.setOnClickListener(new View.OnClickListener() {
@@ -136,14 +170,14 @@ public class AccountActivity extends Activity {
     }
 
     private void initView() {
-        headPic = (ImageView) findViewById(R.id.iv_headPic);
+//        headPic = (ImageView) findViewById(R.id.iv_headPic);
         userName = (EditText) findViewById(R.id.et_userName);
         password = (EditText) findViewById(R.id.et_password);
         btn_login = (Button) findViewById(R.id.tv_loginButton);
-        btn_cannotLogin = (TextView) findViewById(R.id.tv_cannotLogin);
-        btn_newUser = (TextView) findViewById(R.id.tv_newUser);
+//        btn_cannotLogin = (TextView) findViewById(R.id.tv_cannotLogin);
+        btn_newUser = (Button) findViewById(R.id.tv_newUser);
 
-        userService = new UserServiceImpl();
+//        userService = new UserServiceImpl();
     }
 
     private static class CHandler extends Handler {
@@ -160,17 +194,17 @@ public class AccountActivity extends Activity {
             }
 
             int flag = msg.what;
-            switch (flag) {
-                case 0:
-                    String errormsg = (String) msg.getData().getSerializable("ErrorMsg");
-                    ((AccountActivity) mActivity.get()).showTip(errormsg);
-                    break;
-                case FLAG_LOGIN_SUCCESS:
-                    ((AccountActivity) mActivity.get()).showTip(MSG_LOGIN_SUCCESS);
-                    break;
-                default:
-                    break;
-            }
+//            switch (flag) {
+//                case 0:
+//                    String errormsg = (String) msg.getData().getSerializable("ErrorMsg");
+//                    ((AccountActivity) mActivity.get()).showTip(errormsg);
+//                    break;
+//                case FLAG_LOGIN_SUCCESS:
+//                    ((AccountActivity) mActivity.get()).showTip(MSG_LOGIN_SUCCESS);
+//                    break;
+//                default:
+//                    break;
+//            }
         }
     }
 

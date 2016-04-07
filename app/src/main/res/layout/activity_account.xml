@@ -8,22 +8,23 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginTop="50dp"
         android:orientation="vertical">
 
-        <ImageView
-            android:id="@+id/iv_headPic"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_gravity="center"
-            android:layout_marginBottom="20dp"
-            android:background="@drawable/headphoto_bg"
-            android:src="@drawable/person" />
+        <!--<ImageView-->
+        <!--android:id="@+id/iv_headPic"-->
+        <!--android:layout_width="100dp"-->
+        <!--android:layout_height="100dp"-->
+        <!--android:layout_gravity="center"-->
+        <!--android:layout_marginBottom="20dp"-->
+        <!--android:background="@drawable/headphoto_bg"-->
+        <!--android:src="@drawable/person" />-->
 
         <EditText
             android:id="@+id/et_userName"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:layout_marginBottom="10dp"
+            android:layout_marginBottom="30dp"
             android:background="@drawable/edittext_bg"
             android:hint="用户名"
             android:paddingLeft="20dp" />
@@ -32,7 +33,7 @@
             android:id="@+id/et_password"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:layout_marginBottom="40dp"
+            android:layout_marginBottom="50dp"
             android:background="@drawable/edittext_bg"
             android:hint="密码"
             android:inputType="textPassword"
@@ -43,6 +44,7 @@
             android:layout_width="200dp"
             android:layout_height="40dp"
             android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="30dp"
             android:background="@drawable/login_btn_clicked"
             android:gravity="center"
             android:letterSpacing="0.8"
@@ -51,29 +53,19 @@
             android:textColor="#eee"
             android:textSize="20sp" />
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="bottom"
-            android:gravity="bottom">
+        <Button
+            android:id="@+id/tv_newUser"
+            android:layout_width="200dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/login_btn_clicked"
+            android:gravity="center"
+            android:letterSpacing="0.8"
+            android:lineSpacingExtra="3dp"
+            android:text="注册"
+            android:textColor="#eee"
+            android:textSize="20sp" />
 
-            <TextView
-                android:id="@+id/tv_cannotLogin"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:text="无法登录？"
-                android:textColor="#0088DD" />
-
-            <TextView
-                android:id="@+id/tv_newUser"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:gravity="right"
-                android:text="新用户"
-                android:textColor="#0088DD" />
-        </RelativeLayout>
 
     </LinearLayout>
 

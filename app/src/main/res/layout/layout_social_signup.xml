@@ -1,145 +1,312 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
-    android:layout_height="match_parent"
-    android:background="@drawable/card_bg"
+    android:layout_height="wrap_content"
     android:orientation="vertical">
 
-
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:orientation="horizontal">
+        android:layout_height="wrap_content">
 
-        <TextView
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginTop="10dp"
-            android:layout_weight="5"
-            android:gravity="center"
-            android:letterSpacing="0.2"
-            android:text="密码"
-            android:textColor="#fff"
-            android:textSize="16sp" />
-
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_margin="10dp"
-            android:layout_weight="1"
-            android:background="@drawable/edittext_bg"
-            android:paddingLeft="10dp" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginTop="10dp"
-            android:layout_weight="5"
-            android:gravity="center"
-            android:letterSpacing="0.2"
-            android:text="密码"
-            android:textColor="#fff"
-            android:textSize="16sp" />
-
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_margin="10dp"
-            android:layout_weight="1"
-            android:background="@drawable/edittext_bg"
-            android:paddingLeft="10dp" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginTop="10dp"
-            android:layout_weight="5"
-            android:gravity="center"
-            android:letterSpacing="0.2"
-            android:text="密码"
-            android:textColor="#fff"
-            android:textSize="16sp" />
-
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_margin="10dp"
-            android:layout_weight="1"
-            android:background="@drawable/edittext_bg"
-            android:paddingLeft="10dp" />
-
-    </LinearLayout>
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:orientation="horizontal">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="5dp"
+                android:layout_weight="1"
+                android:orientation="horizontal">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginTop="10dp"
-            android:layout_weight="5"
-            android:gravity="center"
-            android:letterSpacing="0.2"
-            android:text="密码"
-            android:textColor="#fff"
-            android:textSize="16sp" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_weight="5"
+                    android:gravity="center"
+                    android:text="用户名"
+                    android:textColor="#fff" />
 
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_margin="10dp"
-            android:layout_weight="1"
-            android:background="@drawable/edittext_bg"
-            android:paddingLeft="10dp" />
+                <EditText
+                    android:id="@+id/id_user_name_s"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/edittext_bg"
+                    android:inputType="text"
+                    android:paddingLeft="10dp" />
 
-    </LinearLayout>
+            </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:orientation="horizontal">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="5dp"
+                android:layout_weight="1"
+                android:orientation="horizontal">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginTop="10dp"
-            android:layout_weight="5"
-            android:gravity="center"
-            android:letterSpacing="0.2"
-            android:text="密码"
-            android:textColor="#fff"
-            android:textSize="16sp" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_weight="5"
+                    android:gravity="center"
+                    android:text="密码"
+                    android:textColor="#fff" />
 
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_margin="10dp"
-            android:layout_weight="1"
-            android:background="@drawable/edittext_bg"
-            android:paddingLeft="10dp" />
+                <EditText
+                    android:id="@+id/id_user_password_s"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/edittext_bg"
+                    android:inputType="textPassword"
+                    android:paddingLeft="10dp" />
 
-    </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="5dp"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="5"
+                    android:gravity="center"
+                    android:text="确认密码"
+                    android:textColor="#fff" />
+
+                <EditText
+                    android:id="@+id/id_user_password__s"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/edittext_bg"
+                    android:inputType="textPassword"
+                    android:paddingLeft="10dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="5dp"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="5"
+                    android:gravity="center"
+                    android:text="学号"
+                    android:textColor="#fff" />
+
+                <EditText
+                    android:id="@+id/id_user_id_s"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/edittext_bg"
+                    android:inputType="number"
+                    android:paddingLeft="10dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="5dp"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="5"
+                    android:gravity="center"
+                    android:text="年龄"
+                    android:textColor="#fff" />
+
+                <EditText
+                    android:id="@+id/id_user_age_s"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/edittext_bg"
+                    android:inputType="number"
+                    android:paddingLeft="10dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="5dp"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="5"
+                    android:gravity="center"
+                    android:text="专业"
+                    android:textColor="#fff" />
+
+                <EditText
+                    android:id="@+id/id_user_major_s"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/edittext_bg"
+                    android:inputType="text"
+                    android:paddingLeft="10dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="5dp"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="5"
+                    android:gravity="center"
+                    android:text="邮箱"
+                    android:textColor="#fff" />
+
+                <EditText
+                    android:id="@+id/id_user_email_s"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/edittext_bg"
+                    android:inputType="textEmailAddress"
+                    android:paddingLeft="10dp" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="5dp"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_weight="5"
+                    android:gravity="center"
+                    android:text="手机号"
+                    android:textColor="#fff" />
+
+                <EditText
+                    android:id="@+id/id_user_phoneNum_s"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/edittext_bg"
+                    android:inputType="phone"
+                    android:paddingLeft="10dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="5dp"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_weight="5"
+                    android:gravity="center"
+                    android:text="负责人"
+                    android:textColor="#fff" />
+
+                <EditText
+                    android:id="@+id/id_user_linderName_s"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/edittext_bg"
+                    android:inputType="phone"
+                    android:paddingLeft="10dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="5dp"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_weight="5"
+                    android:gravity="center"
+                    android:text="负责人联系方式"
+                    android:textColor="#fff" />
+
+                <EditText
+                    android:id="@+id/id_user_linderPhoneNum_s"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/edittext_bg"
+                    android:inputType="phone"
+                    android:paddingLeft="10dp" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/id_btn_socialSignUp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="注册" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </ScrollView>
 
 </LinearLayout>
